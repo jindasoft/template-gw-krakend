@@ -9,7 +9,7 @@ jobs:
   uses_workflow_call:
     name: KrakenD GitOps (prod)
     permissions:
-      packages: write 
+      packages: write
       contents: read
     uses: jindasoft/jinda-platform-ghac/.github/workflows/krakend_gitops_prod.yml@v1.0.0
     secrets:

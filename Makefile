@@ -1,3 +1,12 @@
+init:
+	@echo "Initializing..."
+	@pre-commit install
+	@echo "Initialization complete."
+
+check:
+	@echo "Pre-commit check..."
+	@pre-commit run --all-files
+
 dev:
 	@docker compose up --build
 
