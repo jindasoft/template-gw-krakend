@@ -1,0 +1,16 @@
+{
+  "method": "GET",
+  "endpoint": "/example/v1/examples/{example_id}",
+  "output_encoding": "no-op",
+  {{ include "input_headers.tmpl"}},
+  "backend": [
+    {
+      "method": "GET",
+      "url_pattern": "/v1/examples/{example_id}",
+      "host": ["{{ .host.api_example }}"],
+      "extra_config": {
+        {{ include "rate_limit_backend.tmpl"}}
+      }
+    }
+  ]
+}

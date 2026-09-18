@@ -1,0 +1,26 @@
+FROM krakend:2.13.11 AS builder
+ARG ENV=dev
+
+COPY . .
+
+## Save temporary file to /tmp to avoid permission errors
+RUN FC_ENABLE=1 \
+    FC_OUT=/tmp/krakend.json \
+    FC_SETTINGS="config/settings/$ENV" \
+    FC_PARTIALS="config/partials" \
+    FC_TEMPLATES="config/templates" \
+    krakend check -d -t -c config/krakend.tmpl
+
+# The linting needs the final krakend.json file
+RUN krakend check -c /tmp/krakend.json --lint
+
+FROM krakend:2.13.11
+COPY --from=builder --chown=krakend /tmp/krakend.json .
+COPY --from=builder --chown=krakend /etc/krakend/config/jwk.json config/jwk.json
+
+USER krakend
+
+EXPOSE 8080
+
+# Uncomment with Enterprise image:
+# COPY LICENSE /etc/krakend/LICENSE

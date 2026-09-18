@@ -1,0 +1,27 @@
+# Ignore node and editor files
+node_modules
+npm-debug.log
+yarn-error.log
+dist
+build
+.env
+.DS_Store
+coverage
+*.tgz
+.idea
+.vscode
+.git
+.gitignore
+test
+__tests__
+*.swp
+*.swo
+*.log
+
+# Ignore Krakend build artifacts and configs not needed in image
+krakend-out.json
+krakend-out.*
+krakend-test.json
+krakend-test.*
+*.bak
+*.tmp

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://www.krakend.io/schema/v3.json",
+  "version": 3,
+  "name": "{{ .service.name }} ({{ .service.environment }})",
+  "port": {{ .service.port }},
+  "timeout": "{{ .service.timeout }}",
+  "cache_ttl":  "{{ .service.cache_ttl }}",
+  "output_encoding": "{{ .service.output_encoding }}",
+  "extra_config": {
+    "security/cors": {
+      "allow_origins": {{ marshal .extra_config.cors_allow_origins }},
+      "allow_methods": {{ include "cors_allow_methods.tmpl" }},
+      "allow_headers": {{ include "cors_allow_headers.tmpl" }},
+      "expose_headers": {{ include "cors_expose_headers.tmpl" }},
+      "max_age": "{{ .extra_config.cors_max_age }}"
+    }
+  },
+  "endpoints": [
+    {{ template "endpoints.tmpl" . }}
+  ]
+}

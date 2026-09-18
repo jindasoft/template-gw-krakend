@@ -1,0 +1,16 @@
+name: KrakenD GitOps (dev)
+
+on:
+  push:
+    branches: 
+      - develop
+
+jobs:
+  uses_workflow_call:
+    name: KrakenD GitOps (dev)
+    permissions:
+      packages: write 
+      contents: read
+    uses: jindasoft/jinda-platform-ghac/.github/workflows/krakend_gitops_dev.yml@v1.0.0
+    secrets:
+      token: ${{ secrets.TEMPLATE_GITOPS_NONPROD }}
