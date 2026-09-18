@@ -1,0 +1,7 @@
+{
+  "cors_allow_origins": [
+    "https://web-dev.example.dev",
+    "http://localhost:3000"
+  ],
+  "cors_max_age": "12h"
+}

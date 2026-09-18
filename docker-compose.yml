@@ -1,0 +1,15 @@
+services:
+  krakend:
+    container_name: template-gw-krakend
+    image: devopsfaith/krakend:watch
+    volumes:
+      - .:/etc/krakend
+    ports:
+      - "8080:8080"
+    environment:
+      FC_ENABLE: "1"
+      FC_OUT: "out.json"
+      FC_SETTINGS: "config/settings/local"
+      FC_PARTIALS: "config/partials"
+      FC_TEMPLATES: "config/templates"
+    command: [ "run", "-dc", "config/krakend.tmpl" ]

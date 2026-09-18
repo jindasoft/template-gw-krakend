@@ -1,0 +1,10 @@
+{
+  "keys": [
+    {
+      "k": "Base64-encoded key",
+      "kid": "kid",
+      "kty": "oct",
+      "alg": "HS256"
+    }
+  ]
+}

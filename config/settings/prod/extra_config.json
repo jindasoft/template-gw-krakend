@@ -1,0 +1,4 @@
+{
+  "cors_allow_origins": ["https://example.com", "https://www.example.com"],
+  "cors_max_age": "12h"
+}

@@ -1,0 +1,18 @@
+name: KrakenD GitOps (prod)
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  uses_workflow_call:
+    name: KrakenD GitOps (prod)
+    permissions:
+      packages: write
+      contents: read
+    uses: jindasoft/jinda-platform-ghac/.github/workflows/krakend_gitops_prod.yml@v1.0.0
+    secrets:
+      ci_token: ${{ secrets.TEMPLATE_GITOPS_PROD_CI_TOKEN }}
+      cd_token: ${{ secrets.TEMPLATE_GITOPS_PROD_CD_TOKEN }}
+      gcp_artifact_token: ${{ secrets.TEMPLATE_GITOPS_PROD_GCP_ARTIFACT_TOKEN }}

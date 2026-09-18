@@ -1,0 +1,8 @@
+{
+  "port": 8080,
+  "name": "API Gateway",
+  "environment": "dev",
+  "timeout": "30s",
+  "cache_ttl": "3600s",
+  "output_encoding": "json"
+}
