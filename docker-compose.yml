@@ -5,7 +5,7 @@ services:
     volumes:
       - .:/etc/krakend
     ports:
-      - "8082:8080"
+      - "8080:8080"
     environment:
       FC_ENABLE: "1"
       FC_OUT: "out.json"

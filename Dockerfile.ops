@@ -1,4 +1,4 @@
-FROM krakend:2.13.11 AS builder
+FROM krakend:2.13 AS builder
 ARG ENV=dev
 
 COPY . .
@@ -14,7 +14,7 @@ RUN FC_ENABLE=1 \
 # The linting needs the final krakend.json file
 RUN krakend check -c /tmp/krakend.json --lint
 
-FROM krakend:2.13.11
+FROM krakend:2.13
 COPY --from=builder --chown=krakend /tmp/krakend.json .
 COPY --from=builder --chown=krakend /etc/krakend/config/jwk.json config/jwk.json
 

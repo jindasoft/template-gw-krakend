@@ -1,9 +1,9 @@
 {
   "keys": [
     {
+      "k": "Base64-encoded key",
+      "kid": "kid",
       "kty": "oct",
-      "k": "VjhXaHZDZXJVSGZtN2JpNkJjTFh1dUcxeG1lRDVCemw",
-      "kid": "YXNkZmFzZGZhc2Rma2RmZ2tzZGZqYWxzZGYK",
       "alg": "HS256"
     }
   ]

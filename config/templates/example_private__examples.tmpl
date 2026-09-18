@@ -1,0 +1,19 @@
+{
+  "method": "POST",
+  "endpoint": "/example/v1/examples",
+  "output_encoding": "no-op",
+  "extra_config": {
+    {{ include "auth_validator.tmpl"}}
+  },
+  {{ include "input_headers.tmpl"}},
+  "backend": [
+    {
+      "method": "POST",
+      "url_pattern": "/v1/examples",
+      "host": ["{{ .host.api_example }}"],
+      "extra_config": {
+        {{ include "rate_limit_backend.tmpl"}}
+      }
+    }
+  ]
+}
