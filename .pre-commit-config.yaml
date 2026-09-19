@@ -6,4 +6,17 @@ repos:
       - id: check-yaml
       - id: check-json
       - id: end-of-file-fixer
+      - id: check-merge-conflict
+      - id: no-commit-to-branch
+        args: ["--branch", "main", "--branch", "develop"]
+      - id: detect-private-key
       - id: check-added-large-files
+        args: ["--maxkb", "1000"]
+
+  - repo: local
+    hooks:
+      - id: build
+        name: Build
+        entry: make build
+        language: system
+        pass_filenames: false
