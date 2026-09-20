@@ -17,3 +17,6 @@ out.json
 
 # Logs
 *.log
+
+# JWK configuration files
+config/jwk.json
